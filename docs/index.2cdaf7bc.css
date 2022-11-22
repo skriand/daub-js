@@ -1,0 +1,192 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background: #414141;
+}
+
+#tools {
+  position: fixed;
+}
+
+#container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+#canvas {
+  width: 80vw;
+  height: 80vh;
+  touch-action: none;
+  background: #fff;
+}
+
+.name {
+  padding: 0 10px;
+}
+
+.box {
+  min-width: 45px;
+  min-height: 45px;
+  -webkit-user-select: none;
+  user-select: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+.boxheader {
+  width: 100%;
+  cursor: move;
+  z-index: 10;
+  text-align: center;
+  touch-action: none;
+  border-radius: 7px;
+  padding: 5px 0;
+}
+
+.boxheader:hover {
+  background-color: #41414133 !important;
+}
+
+.tool {
+  width: 40px;
+  height: 40px;
+  background: red;
+  border-radius: 20px;
+}
+
+.static .box {
+  position: fixed;
+  bottom: 15px;
+}
+
+#boxleft {
+  left: 15px;
+}
+
+#boxright {
+  max-width: 45px;
+  right: 15px;
+}
+
+#boxright input {
+  text-align: center;
+  width: 100%;
+  background: none;
+  border: none;
+}
+
+.surface {
+  background-blend-mode: normal, luminosity;
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  background: #fcfcfcd9;
+  padding: 5px;
+}
+
+.border {
+  border: 1px solid #0000000f;
+  border-radius: 7px;
+  box-shadow: 0 8px 16px #00000024;
+}
+
+.highlight {
+  background: #414141a6;
+  position: absolute;
+  top: 0;
+}
+
+#toolsheader {
+  display: none;
+}
+
+@media (horizontal-viewport-segments: 2) {
+  #toolsheader {
+    display: block;
+  }
+
+  #brushesheader, #colorsheader {
+    display: none;
+  }
+
+  #tools {
+    height: 100vh;
+    width: env(viewport-segment-right 0 0);
+    -webkit-user-select: none;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .dinamic {
+    flex-direction: row;
+    display: flex;
+  }
+
+  .dinamic .box {
+    width: 100%;
+    position: relative;
+  }
+
+  .highlight {
+    height: 100vh;
+  }
+
+  .name {
+    align-self: stretch;
+    padding: 5px;
+  }
+}
+
+@media (vertical-viewport-segments: 2) {
+  #toolsheader {
+    display: block;
+  }
+
+  #brushesheader, #colorsheader {
+    display: none;
+  }
+
+  #tools {
+    height: env(viewport-segment-height 0 0);
+    width: env(viewport-segment-width 0 0);
+    -webkit-user-select: none;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .dinamic {
+    flex-direction: row;
+    display: flex;
+  }
+
+  .dinamic .box {
+    width: 100%;
+    position: relative;
+  }
+
+  .highlight {
+    height: env(viewport-segment-height 0 0);
+  }
+
+  .name {
+    align-self: stretch;
+    padding: 5px;
+  }
+}
+
+/*# sourceMappingURL=index.2cdaf7bc.css.map */
