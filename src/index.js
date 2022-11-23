@@ -225,6 +225,7 @@ function isFold() {
                 menuItem[i].style.left = 0;
             }
             document.querySelector('#tools').classList.add('surface');
+            document.querySelector('#tools').style.position = 'absolute';
             if(document.querySelector('#tools').style.top == "env(viewport-segment-top 0 1)"){
                 document.querySelector('#tools').style.top = 0;
                 document.querySelector('#tools').style.height = 'env(viewport-segment-height 0 0)';
