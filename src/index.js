@@ -13,7 +13,7 @@ function setup() {
 
 function drawOn(){
     const canvas = document.getElementById('canvas');
-    //const toolbar = document.getElementById('toolbar');
+    const toolbar = document.getElementById('colors');
     const ctx = canvas.getContext('2d');
 
     let canvasOffsetX = canvas.offsetLeft;
@@ -33,18 +33,18 @@ function drawOn(){
         if (e.target.id === 'clear') {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
-    });
+    });*/
 
     toolbar.addEventListener('change', e => {
         if(e.target.id === 'stroke') {
             ctx.strokeStyle = e.target.value;
         }
 
-        if(e.target.id === 'lineWidth') {
+        /*if(e.target.id === 'lineWidth') {
             lineWidth = e.target.value;
-        }
+        }*/
         
-    });*/
+    });
 
     const draw = (e) => {
         if(!isPainting) {

@@ -61,8 +61,29 @@ body {
 .tool {
   width: 40px;
   height: 40px;
-  background: red;
-  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #00000040;
+  border-radius: 50%;
+  position: relative;
+}
+
+#stroke {
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #0000;
+  border: none;
+  position: absolute;
+  left: 0;
+}
+
+#stroke::-webkit-color-swatch {
+  border-radius: 50%;
+}
+
+#stroke::-moz-color-swatch {
+  border-radius: 50%;
 }
 
 .static .box {
