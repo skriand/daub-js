@@ -13,7 +13,8 @@ function setup() {
 
 function drawOn(){
     const canvas = document.getElementById('canvas');
-    const toolbar = document.getElementById('colors');
+    const colors = document.getElementById('colors');
+    const brushes = document.getElementById('brushes');
     const ctx = canvas.getContext('2d');
 
     let canvasOffsetX = canvas.offsetLeft;
@@ -35,7 +36,7 @@ function drawOn(){
         }
     });*/
 
-    toolbar.addEventListener('change', e => {
+    colors.addEventListener('change', e => {
         if(e.target.id === 'stroke') {
             ctx.strokeStyle = e.target.value;
         }
@@ -44,6 +45,12 @@ function drawOn(){
             lineWidth = e.target.value;
         }*/
         
+    });
+
+    brushes.addEventListener('change', e => {
+        if(e.target.id === 'lineWidth') {
+            lineWidth = e.target.value;
+        }
     });
 
     const draw = (e) => {

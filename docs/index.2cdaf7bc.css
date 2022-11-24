@@ -140,6 +140,42 @@ body {
   display: none;
 }
 
+#brushes .tool {
+  height: 100px;
+  background: none;
+  border: none;
+  border-radius: 50px;
+  align-items: center;
+  display: flex;
+}
+
+input[type="range"] {
+  width: 100px;
+  height: 40px;
+  appearance: none;
+  background-color: #0000000f;
+  border: 1px solid #0000000f;
+  border-radius: 500px;
+  outline: 0;
+  position: fixed;
+  left: -13.5px;
+  overflow: hidden;
+  transform: rotate(270deg);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 40px;
+  appearance: none;
+  height: 40px;
+  cursor: ew-resize;
+  background: #fff url("brush.e4cf9f70.png") center no-repeat;
+  border: 1px solid #0000000f;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(90deg);
+  box-shadow: 0 340px 0 320px #005fb8cc;
+}
+
 @media (horizontal-viewport-segments: 2) {
   #toolsheader {
     display: block;
@@ -177,6 +213,22 @@ body {
   .name {
     align-self: stretch;
     padding: 5px;
+  }
+
+  #brushes .tool {
+    width: 100%;
+    height: auto;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    position: static;
+    transform: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    transform: none;
+    box-shadow: -340px 0 0 320px #005fb8cc;
   }
 }
 
@@ -216,6 +268,22 @@ body {
   .name {
     align-self: stretch;
     padding: 5px;
+  }
+
+  #brushes .tool {
+    width: 100%;
+    height: auto;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    position: static;
+    transform: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    transform: none;
+    box-shadow: -340px 0 0 320px #005fb8cc;
   }
 }
 

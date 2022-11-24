@@ -545,7 +545,8 @@ function setup() {
 }
 function drawOn() {
     const canvas = document.getElementById("canvas");
-    const toolbar = document.getElementById("colors");
+    const colors = document.getElementById("colors");
+    const brushes = document.getElementById("brushes");
     const ctx = canvas.getContext("2d");
     let canvasOffsetX = canvas.offsetLeft;
     let canvasOffsetY = canvas.offsetTop;
@@ -561,11 +562,14 @@ function drawOn() {
       if (e.target.id === 'clear') {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
-  });*/ toolbar.addEventListener("change", (e)=>{
+  });*/ colors.addEventListener("change", (e)=>{
         if (e.target.id === "stroke") ctx.strokeStyle = e.target.value;
     /*if(e.target.id === 'lineWidth') {
         lineWidth = e.target.value;
     }*/ });
+    brushes.addEventListener("change", (e)=>{
+        if (e.target.id === "lineWidth") lineWidth = e.target.value;
+    });
     const draw = (e)=>{
         if (!isPainting) return;
         ctx.lineWidth = lineWidth;
