@@ -4,12 +4,19 @@ function setup() {
     dragElement(document.getElementById("brushesheader"));
     dragElement(document.getElementById("colorsheader"));
     dragElement(document.getElementById("toolsheader"));
+    dragElement(document.getElementById("settingsheader"));
     isFold();
     drawOn();
     window.addEventListener('resize', () =>{
         isFold();
     });
 }
+
+const hexToRgb = hex =>
+  hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i
+             ,(m, r, g, b) => '#' + r + r + g + g + b + b)
+    .substring(1).match(/.{2}/g)
+    .map(x => parseInt(x, 16))
 
 function drawOn(){
     const canvas = document.getElementById('canvas');
@@ -30,21 +37,28 @@ function drawOn(){
     let startX;
     let startY;
 
-    /*toolbar.addEventListener('click', e => {
+    brushes.addEventListener('pointerdown', e => {
         if (e.target.id === 'clear') {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
-    });*/
+    });
+
+    let color = [0, 0, 0];
+    let transparent = 1;
 
     colors.addEventListener('change', e => {
         if(e.target.id === 'stroke') {
-            ctx.strokeStyle = e.target.value;
+            color = hexToRgb(e.target.value);
+            ctx.strokeStyle = ctx.strokeStyle = 'rgb(' + color[0] + ',' + color[1] + ',' +
+            color[2] + ',' + transparent + ')';
+            document.querySelector('#transparent').style.background = 'linear-gradient(to right, transparent,' + e.target.value + ')';
         }
 
-        /*if(e.target.id === 'lineWidth') {
-            lineWidth = e.target.value;
-        }*/
-        
+        if(e.target.id === 'transparent') {
+            transparent = e.target.value;
+            ctx.strokeStyle = 'rgb(' + color[0] + ',' + color[1] + ',' +
+            color[2] + ',' + e.target.value + ')';
+        }  
     });
 
     brushes.addEventListener('change', e => {

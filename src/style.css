@@ -21,6 +21,29 @@ body{
     background: #fff;
     touch-action: none;
 }
+
+#settings-window{
+    display: none;
+}
+#settings-window .name{
+    display: inline;
+}
+
+#brush{
+    background: url(brush.png) #fff;
+    border: 1px solid rgba(0, 95, 184, 0.8);
+}
+#pencil{
+    background: url(pencil.png) #fff;
+}
+#clear{
+    background: url(eraser.png) #fff;
+}
+#brush, #pencil, #clear{
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .name{
     padding: 0 10px;
 }
@@ -51,6 +74,12 @@ body{
 .boxheader:hover{
     background-color: rgb(65, 65, 65, 0.2) !important;
 }
+.boxheader img{
+    vertical-align: bottom;
+}
+.settings{
+    cursor: pointer;
+}
 .tool{
     width: 40px;
     height: 40px;
@@ -59,6 +88,7 @@ body{
     border-radius: 50%;
     position: relative;
     overflow: hidden;
+    margin-top: 5px;
 }
 #stroke {
     position: absolute;
@@ -97,6 +127,10 @@ body{
     border: none;
 }
 
+.name{
+    display: none;
+    height: 40px;
+}
 .surface{
     background: rgba(252, 252, 252, 0.85);
     background-blend-mode: normal, luminosity;
@@ -117,17 +151,28 @@ body{
     display: none;
 }
 
-#brushes .tool{
+#colors .range input[type="range"] {
+    background: linear-gradient(to right, transparent, black);
+}
+
+#colors .range input[type="range"]::-webkit-slider-thumb{
+    background: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.0578), inset 0 0 0 5px #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+.range{
     height: 100px;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    border: none;
     background: none;
 }
 input[type="range"] {
     position: fixed;
-    left: -13.5px;
+    left: -25px;
     transform: rotate(270deg);
     outline: 0;
     border: 0;
@@ -138,15 +183,14 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     background-color: rgba(0, 0, 0, 0.0578);
-    border: 1px solid rgba(0, 0, 0, 0.0578);
 }
 input[type="range"]::-webkit-slider-thumb {
     transform: rotate(90deg);
-    width: 40px;
     -webkit-appearance: none;
     appearance: none;
+    width: 40px;
     height: 40px;
-    cursor: ew-resize;
+    cursor: s-resize;
     background: #fff;
     background-image: url(brush.png);
     background-repeat: no-repeat;
@@ -180,6 +224,7 @@ input[type="range"]::-webkit-slider-thumb {
     .dinamic .box{
         position: relative;
         width: 100%;
+        padding: 5px;
     }
     .highlight{
         height: 100vh;
@@ -188,17 +233,32 @@ input[type="range"]::-webkit-slider-thumb {
         padding: 5px;
         align-self: stretch;
     }
-
-    #brushes .tool{
+    .range{
         width: 100%;
         height: auto;
     }
+    .name{
+        display: flex;
+        align-items: center;
+    }
+    .settings{
+        position: fixed;
+        display: flex;
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        align-self: flex-end;
+        align-items: center;
+        justify-content: center;
+    }
+
     input[type="range"] {
         position: static;
         transform: none;
         width: 100%;
     }
     input[type="range"]::-webkit-slider-thumb {
+        cursor: ew-resize;
         transform: none;
         box-shadow: -340px 0 0 320px rgba(0, 95, 184, 0.8);
     }
@@ -225,6 +285,7 @@ input[type="range"]::-webkit-slider-thumb {
     .dinamic .box{
         position: relative;
         width: 100%;
+        padding: 5px;
     }
     .highlight{
         height: env(viewport-segment-height 0 0);
@@ -232,9 +293,16 @@ input[type="range"]::-webkit-slider-thumb {
     .name{
         padding: 5px;
         align-self: stretch;
+        display: inline-block;
+    }
+    .settings{
+        position: fixed;
+        width: auto;
+        padding: 5px;
+        align-self: flex-end;
     }
 
-    #brushes .tool{
+    .range{
         width: 100%;
         height: auto;
     }
@@ -244,6 +312,7 @@ input[type="range"]::-webkit-slider-thumb {
         width: 100%;
     }
     input[type="range"]::-webkit-slider-thumb {
+        cursor: ew-resize;
         transform: none;
         box-shadow: -340px 0 0 320px rgba(0, 95, 184, 0.8);
     }
