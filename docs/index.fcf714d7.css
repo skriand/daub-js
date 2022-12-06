@@ -37,16 +37,16 @@ body {
 }
 
 #brush {
-  background: #fff url("brush.e4cf9f70.png");
+  background: #fff url("brush.fd4b2144.png");
   border: 1px solid #005fb8cc;
 }
 
 #pencil {
-  background: #fff url("pencil.41036570.png");
+  background: #fff url("pencil.a008aef8.png");
 }
 
 #clear {
-  background: #fff url("eraser.c6a65bcb.png");
+  background: #fff url("eraser.29de99db.png");
 }
 
 #brush, #pencil, #clear {
@@ -219,7 +219,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 40px;
   height: 40px;
   cursor: s-resize;
-  background: #fff url("brush.e4cf9f70.png") center no-repeat;
+  background: #fff url("brush.fd4b2144.png") center no-repeat;
   border: 1px solid #0000000f;
   border-radius: 50%;
   position: relative;
@@ -366,4 +366,4 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 
-/*# sourceMappingURL=index.2cdaf7bc.css.map */
+/*# sourceMappingURL=index.fcf714d7.css.map */

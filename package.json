@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --dist-dir docs --public-url ./",
     "test": "jest",
     "coverage": "jest --collect-coverage"
   },
